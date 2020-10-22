@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+@model ProgenesisProperties.Models.SignUpModel 
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V16</title>
+	<title>Sign Up ProgenesisProp</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -33,31 +35,58 @@
 		<div class="container-login100" style="background-image: url '~/images/bg-01.jpg' ;">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
-					Account Login
+					Sign Up Form
 				</span>
-				<form class="login100-form validate-form p-b-33 p-t-5">
+				<form asp-action= "SignUp" method="Post" class="login100-form validate-form p-b-33 p-t-5">
 
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="User name">
-						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+						<label asp-for="FullName"></label>
+						<input class="input100" type="text" asp-for="FullName"  required>
+						<span class="focus-input100" asp-validation-for="FullName" data-placeholder="&#xe82a;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Password">
-						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                    <div class="wrap-input100 validate-input" data-validate="Enter Email Address">
+						<label asp-for="Email"></label>
+						<input class="input100" type="Email" asp-for="Email"   required>
+						<span class="focus-input100" asp-validation-for="Email" data-placeholder="&#xe80f;"></span>
 					</div>
+
+					
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<label asp-for="Password"></label>
+						<input class="input100" type="password" asp-for="Password"   required>
+						<span class="focus-input100" asp-validation-for="Password" data-placeholder="&#xe80f;"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate="Confirm Password">
+						<label asp-for="ConfirmPassword"></label>
+						<input class="input100" type="password" asp-for="ConfirmPassword" required>
+						<span class="focus-input100" asp-validation-for="ConfirmPassword" data-placeholder="&#xe80f;"></span>
+					</div>
+
+                    <div class="flex-m w-full p-b-33">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100" for="ckb1">
+								<span class="txt1">
+									I agree to the
+									<a href="#" class="txt2 hov1">
+										Terms 
+									</a>
+								</span>
+							</label>
+						</div>
 
 					<div class="container-login100-form-btn m-t-32">
 						<button class="login100-form-btn">
-							Login
+							Sign Up
 						</button>
 					</div>
 
 				</form>
-			</div>
-		</div>
-	</div>
-	
+            </div>
+        </div>
+    </div>
 
 	<div id="dropDownSelect1"></div>
 	

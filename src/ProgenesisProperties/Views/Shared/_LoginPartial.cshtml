@@ -1,0 +1,27 @@
+@using Microsoft.AspNetCore.Identity
+@using ProgenesisProperties.data.Entities
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn (User))
+{
+    <div class="container-login100-form-btn">
+		<form asp-action="post">
+		<button class="login100-form-btn" asp-controller="Accounts" asp-action= "LogOut">LogOut</button>
+		</form>
+	</div>
+}
+else 
+{
+	<div class="container-login100-form-btn">
+		<form action="get">
+			<button class="login100-form-btn" asp-controller="Accounts" asp-action= "Login">
+				Login
+			</button>
+	
+			<button class="login100-form-btn" asp-controller="Accounts" asp-action= "SignUp">
+				SignUp
+			</button>
+		</form>
+	</div>
+} 

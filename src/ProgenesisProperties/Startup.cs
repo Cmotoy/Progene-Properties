@@ -13,6 +13,8 @@ using Microsoft.Extensions.Hosting;
 using ProgenesisProperties.data.DatabaseContext.ApplicationDbContext;
 using ProgenesisProperties.data.DatabaseContext.AuthenticationDbContext;
 using ProgenesisProperties.data.Entities;
+using ProgenesisProperties.Interfaces;
+using ProgenesisProperties.Services;
 
 namespace ProgenesisProperties
 {
@@ -55,7 +57,7 @@ namespace ProgenesisProperties
                  options.SignIn.RequireConfirmedPhoneNumber = false;
             });
                 services.AddControllersWithViews();
-
+                services.AddTransient<IAccountsService, AccountsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,7 +78,9 @@ namespace ProgenesisProperties
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
+            
 
             app.UseEndpoints(endpoints =>
             {
@@ -133,4 +137,4 @@ namespace ProgenesisProperties
     }  
 }     
 
-
+ 
